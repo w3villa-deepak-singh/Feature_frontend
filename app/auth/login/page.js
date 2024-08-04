@@ -27,9 +27,12 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
+      const result = await response.json();
       if (response.ok) {
-        // Handle successful login
+                // Store the token and user data in local storage
+        localStorage.setItem('token', result.data.token);
+        localStorage.setItem('user', JSON.stringify(result.data.existingUser));
+              
         alert('Login successful!');
         router.push('/'); 
       } else {
