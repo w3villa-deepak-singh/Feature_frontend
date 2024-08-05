@@ -55,7 +55,7 @@ export default function Signup() {
              const UID = userData ? userData.UID : null; // Extract UID from user data
              const token = localStorage.getItem('token'); // Assuming JWT token is stored here
        
-      const response = await fetch('http://localhost:3001/api/verify-mobile-otp', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/verify-mobile-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
