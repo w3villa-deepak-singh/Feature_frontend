@@ -1,15 +1,21 @@
-'use client';
+'use client'
+require('dotenv').config();
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+
 import styles from './Signup.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
+console.log("Backend URL:>>>>>>>>>>>>>", process.env.NEXT_PUBLIC_BACKEND_URL);
 
-const ngrokUrl = process.env.NEXT_PUBLIC_NGROK_URL;
+
+
 
 export default function Signup() {
   const [email, setEmail] = useState('');
@@ -31,8 +37,12 @@ export default function Signup() {
       return;
     }
 
+
+
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/signup`, {
+            // const response = await fetch('http://localhost:3001/api/signup', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/signup`, {
+          
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +57,8 @@ export default function Signup() {
         localStorage.setItem('token', result.data.token);
         localStorage.setItem('user', JSON.stringify(result.data.newUser));
         alert('An email has been sent to your email address. Please verify your account.');
-        // router.push('/');
+        // toast.success('An email has been sent to your email address. Please verify your account.');
+        router.push('/auth/mobileOtp');
       } else {
         console.error('Signup failed', data);
       }
@@ -58,6 +69,8 @@ export default function Signup() {
 
 
   return (
+    <>
+    <ToastContainer />
     <section className={`${styles['vh-100']} ${styles['gradient-custom']}`}>
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
@@ -135,6 +148,7 @@ export default function Signup() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

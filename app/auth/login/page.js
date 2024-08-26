@@ -19,7 +19,8 @@ export default function Login() {
     setError(''); // Reset error state
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, {
+      // const response = await fetch('http://localhost:3001/api/login', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,6 +38,7 @@ export default function Login() {
         router.push('/'); 
       } else {
         // Handle errors
+        alert('Login failed!');
         setError(data.message || 'Login failed');
       }
     } catch (error) {
@@ -100,7 +102,7 @@ export default function Login() {
                 </div>
 
                 <div>
-                  <p className="mb-0">Don't have an account? <Link href="/auth/signup" className="text-white-50 fw-bold">Sign Up</Link></p>
+                  <p className="mb-0">Dont have an account? <Link href="/auth/signup" className="text-white-50 fw-bold">Sign Up</Link></p>
                 </div>
 
               </div>
