@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
 
-      {/* <div> */}
+      <body className={inter.className}>
 
-        {/* <ToastContainer 
+      <ToastContainer 
         autoClose={3000}
         hideProgressBar
         newestOnTop
@@ -25,12 +25,13 @@ export default function RootLayout({ children }) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light" /> */}
+        theme="light" 
+        />
+        {children}
 
+        </body>
 
-      <body className={inter.className}>{children}</body>
-
-      {/* </div> */}
+      
 
 
     </html>
