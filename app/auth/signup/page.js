@@ -4,7 +4,7 @@ require('dotenv').config();
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import styles from './Signup.module.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -56,11 +56,12 @@ export default function Signup() {
         // Store the token and user data in local storage
         localStorage.setItem('token', result.data.token);
         localStorage.setItem('user', JSON.stringify(result.data.newUser));
-        alert('An email has been sent to your email address. Please verify your account.');
-        // toast.success('An email has been sent to your email address. Please verify your account.');
+        // alert('An email has been sent to your email address. Please verify your account.');
+        toast.success('An email has been sent to your email address. Please verify your account.');
         router.push('/auth/mobileOtp');
       } else {
         console.error('Signup failed', data);
+        toast.error('signup failed');
       }
     } catch (error) {
       console.error('An error occurred', error);
@@ -70,7 +71,7 @@ export default function Signup() {
 
   return (
     <>
-    <ToastContainer />
+
     <section className={`${styles['vh-100']} ${styles['gradient-custom']}`}>
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">

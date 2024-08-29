@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 import styles from './Login.module.css';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -34,16 +36,19 @@ export default function Login() {
         localStorage.setItem('token', result.data.token);
         localStorage.setItem('user', JSON.stringify(result.data.existingUser));
               
-        alert('Login successful!');
+        // alert('Login successful!');
+        toast.success('You have been logged in successfully.');
+
         router.push('/'); 
       } else {
         // Handle errors
-        alert('Login failed!');
+        toast.error('Login failed!');
         setError(data.message || 'Login failed');
       }
     } catch (error) {
       console.error('An error occurred', error);
       setError('An error occurred while logging in. Please try again.');
+      // toast.error('An error occurred while logging in.');
     }
   };
 
@@ -116,65 +121,3 @@ export default function Login() {
 
   
 
-
-
-// <main className={styles.main}>
-// <div className={styles.container}>
-//   <h1 className={styles.heading}>Log in</h1>
-//   <form className={styles.form} onSubmit={handleSubmit}>
-//     <div className="mb-3">
-//       <label htmlFor="email" className="form-label">
-//         Email <span className="text-danger">*</span>
-//       </label>
-//       <input
-//         type="email"
-//         className="form-control"
-//         id="email"
-//         placeholder="name@example.com"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//       />
-//     </div>
-//     <div className="mb-3">
-//       <label htmlFor="password" className="form-label">
-//         Password <span className="text-danger">*</span>
-//       </label>
-//       <input
-//         type="password"
-//         className="form-control"
-//         id="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//       />
-//     </div>
-//     <div className="mb-3 form-check">
-//       <input type="checkbox" className="form-check-input" id="keepLoggedIn" />
-//       <label className="form-check-label" htmlFor="keepLoggedIn">
-//         Keep me logged in
-//       </label>
-//     </div>
-//     <button type="submit" className="btn btn-primary w-100">
-//       Log in now
-//     </button>
-//     <div className="d-flex justify-content-between mt-3">
-//       <a href="/auth/signup">Create new account</a>
-//       <a href="/auth/forgot-password">Forgot password</a>
-//     </div>
-//     <hr className="my-4" />
-//     <div className="text-center">
-//       <span>Or sign in with</span>
-//     </div>
-//     <div className="d-flex justify-content-around mt-3">
-//       <button type="button" className="btn btn-outline-primary">
-//         <i className="bi bi-google"></i> Google
-//       </button>
-//       <button type="button" className="btn btn-outline-primary">
-//         <i className="bi bi-facebook"></i> Facebook
-//       </button>
-//       <button type="button" className="btn btn-outline-primary">
-//         <i className="bi bi-twitter"></i> Twitter
-//       </button>
-//     </div>
-//   </form>
-// </div>
-// </main>

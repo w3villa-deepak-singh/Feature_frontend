@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import jsPDF from 'jspdf'; 
 // import styles from '../styles/userForm.css';
+import { toast } from 'react-toastify';
 import '../styles/userForm.css'
 
 export default function UserProfileForm() {
@@ -99,6 +100,7 @@ export default function UserProfileForm() {
       if (response.ok) {
         const result = await response.json();
         console.log('User profile updated:', result);
+        toast.success("profile updated successfully");
         // Optionally, you can display a success message to the user here
       } else {
         console.error('Failed to update user profile:', response.statusText);
@@ -131,7 +133,7 @@ export default function UserProfileForm() {
   }, []); 
     console.log("update profile UID",UID);
 
-    
+
   // Call fetchUserData inside useEffect when the component mounts
   useEffect(() => {
       if (UID) {
@@ -148,8 +150,9 @@ export default function UserProfileForm() {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="row">
+    <section className='userFormSection'>
+    <form className="userForm card bg-dark text-white"  onSubmit={handleSubmit}>
+      <div className="row ">
 
         <div className="row">
           <div className="col">
@@ -280,9 +283,10 @@ export default function UserProfileForm() {
 
 
     </form>
-
+    </section>
   );
 }
+
 
 
 // <button type="submit" className="btn btn-primary"> Submit</button>

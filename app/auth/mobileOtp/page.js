@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 import styles from './mobileOtp.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,7 +36,7 @@ export default function Signup() {
       const data = await response.json();
       console.log('Server Response:', data);
       if (response.ok) {
-        alert('OTP has been sent to your mobile number.');
+        toast.success('OTP has been sent to your mobile number.');
 
       } else {
         setError(data.message || 'Failed to send OTP');
@@ -43,6 +44,7 @@ export default function Signup() {
     } catch (error) {
       console.error('An error occurred', error);
       setError('An error occurred while sending OTP. Please try again.');
+      toast.error('An error occurred while sending OTP. ');
     }
   };
 
@@ -65,7 +67,7 @@ export default function Signup() {
       });
       const data = await response.json();
       if (response.ok) {
-        alert('OTP verified successfully. You are now signed up.');
+        toast.success('OTP verified successfully. You are now signed up.');
         router.push('/');
       } else {
         setError(data.message || 'Failed to verify OTP');
@@ -73,6 +75,7 @@ export default function Signup() {
     } catch (error) {
       console.error('An error occurred', error);
       setError('An error occurred while verifying OTP. Please try again.');
+      toast.error('An error occurred while verifying OTP.');
     }
   };
 

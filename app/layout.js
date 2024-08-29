@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
+import { ToastContainer, toast } from 'react-toastify';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +13,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
+      {/* <div> */}
+
+        {/* <ToastContainer 
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light" /> */}
+
+
       <body className={inter.className}>{children}</body>
+
+      {/* </div> */}
+
+
     </html>
   );
 }
