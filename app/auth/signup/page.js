@@ -40,18 +40,18 @@ export default function Signup() {
 
 
     try {
-            // const response = await fetch('http://localhost:3001/api/signup', {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/signup`, {
-          
+      // const response = await fetch('http://localhost:3001/api/signup', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/signup`, {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-      
+
       });
       const result = await response.json();
-      
+
       if (response.ok) {
         // Store the token and user data in local storage
         localStorage.setItem('token', result.data.token);
@@ -72,88 +72,84 @@ export default function Signup() {
   return (
     <>
 
-    <section className={`${styles['vh-100']} ${styles['gradient-custom']}`}>
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div className="card bg-dark text-white" style={{ borderRadius: '1rem' }}>
-              <div className="card-body p-5 text-center">
+      <section className={`${styles['vh-100']} ${styles['gradient-custom']}`}>
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div className="card bg-dark text-white" style={{ borderRadius: '1rem' }}>
+                <div className="card-body p-5 text-center">
 
-                <div className="mb-md-5 mt-md-4 pb-5">
+                  <div className="mb-md-5 mt-md-4 pb-5">
 
-                  <h2 className="fw-bold mb-2 text-uppercase">Signup</h2>
-                  <p className="text-white-50 mb-5">Please enter your email and password!</p>
+                    <h2 className="fw-bold mb-2 text-uppercase">Signup</h2>
+                    <p className="text-white-50 mb-5">Please enter your email and password!</p>
 
-                  {error && <p className="text-danger">{error}</p>}
+                    {error && <p className="text-danger">{error}</p>}
 
-                  <div data-mdb-input-init className="form-outline form-white mb-4">
-                  <input
-                      type="email"
-                      id="typeEmailX"
-                      name="email"
-                      className="form-control form-control-lg"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email......"
-                    />
-                    <label className="form-label" htmlFor="typeEmailX" style={{ marginTop: '10px' }}>Email</label>
-                  </div>
+                    <div data-mdb-input-init className="form-outline form-white mb-4">
+                      <input
+                        type="email"
+                        id="typeEmailX"
+                        name="email"
+                        className="form-control form-control-lg"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email......"
+                      />
+                      <label className="form-label" htmlFor="typeEmailX" style={{ marginTop: '10px' }}>Email</label>
+                    </div>
 
-                  <div data-mdb-input-init className="form-outline form-white mb-4">
-                  <input
-                      type="password"
-                      id="typePasswordX"
-                      name="password"
-                      className="form-control form-control-lg"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="Enter your password......"
-                    />
-                    <label className="form-label" htmlFor="typePasswordX" style={{ marginTop: '10px' }}>Password</label>
-                  </div>
+                    <div data-mdb-input-init className="form-outline form-white mb-4">
+                      <input
+                        type="password"
+                        id="typePasswordX"
+                        name="password"
+                        className="form-control form-control-lg"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter your password......"
+                      />
+                      <label className="form-label" htmlFor="typePasswordX" style={{ marginTop: '10px' }}>Password</label>
+                    </div>
 
-        
 
-                  <button data-mdb-button-init data-mdb-ripple-init className="btn btn-outline-light btn-lg px-5" type="submit" onClick={handleSubmit}>Signup</button>
-                  
 
-                  <div className="d-flex align-items-center my-4">
-                    <hr className="flex-grow-1" />
-                    <span className="mx-2">or</span>
-                    <hr className="flex-grow-1" />
-                  </div>
+                    <button data-mdb-button-init data-mdb-ripple-init className="btn btn-outline-light btn-lg px-5" type="submit" onClick={handleSubmit}>Signup</button>
 
-                  <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                      <Link href="#" className="btn btn-outline-light btn-lg px-5 d-flex align-items-center">
-                      <FontAwesomeIcon icon={faGoogle} size="lg" className="me-2" />
-                      Google
-                    </Link>
-                      
-                       {/* <Link href={`${ngrokUrl}/auth/google`}>
-                      <button className="btn btn-outline-light btn-lg px-5 d-flex align-items-center">
+
+                    <div className="d-flex align-items-center my-4">
+                      <hr className="flex-grow-1" />
+                      <span className="mx-2">or</span>
+                      <hr className="flex-grow-1" />
+                    </div>
+
+                    <div className="d-flex justify-content-center text-center mt-4 pt-1">
+                      <button
+                        onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google`}
+                        className="btn btn-outline-light btn-lg px-5 d-flex align-items-center"
+                      >
                         <FontAwesomeIcon icon={faGoogle} size="lg" className="me-2" />
                         Google
                       </button>
-                    </Link> */}
+                    </div>
+
                   </div>
- 
-                </div>
 
-                <div>
-                  <p className="mb-0">Already a user? <Link href="/auth/login" className="text-white-50 fw-bold"> Login</Link></p>
-                </div>
+                  <div>
+                    <p className="mb-0">Already a user? <Link href="/auth/login" className="text-white-50 fw-bold"> Login</Link></p>
+                  </div>
 
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
 
-  
+
 
 
 

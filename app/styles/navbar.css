@@ -1,3 +1,16 @@
+.user-container {
+    background-color: #7c9dbe; 
+    border: 1px solid #ced4da; 
+    padding: 8px; 
+
+  }
+
+  .user-container:hover {
+    background-color: #b4c2cf; /* Darker grey background on hover */
+  }
+
+
+
 .user-dropdown{
     top: 100%;
     right: 0;

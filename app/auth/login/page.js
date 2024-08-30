@@ -92,7 +92,7 @@ export default function Login() {
 
                   <button data-mdb-button-init data-mdb-ripple-init className="btn btn-outline-light btn-lg px-5" type="submit" onClick={handleSubmit}>Login</button>
 
-                  <div className="d-flex justify-content-center text-center mt-4 pt-1">
+                  {/* <div className="d-flex justify-content-center text-center mt-4 pt-1">
                     <a href="#!" className="text-white">
                       <FontAwesomeIcon icon={faFacebookF} size="lg" />
                     </a>
@@ -102,8 +102,23 @@ export default function Login() {
                     <a href="#!" className="text-white">
                       <FontAwesomeIcon icon={faGoogle} size="lg" />
                     </a>
-                  </div>
+                  </div> */}
+                   <div className="d-flex align-items-center my-4">
+                      <hr className="flex-grow-1" />
+                      <span className="mx-2">or</span>
+                      <hr className="flex-grow-1" />
+                    </div>
 
+                    <div className="d-flex justify-content-center text-center mt-4 pt-1">
+                      <button
+                        onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google`}
+                        className="btn btn-outline-light btn-lg px-5 d-flex align-items-center"
+                      >
+                        <FontAwesomeIcon icon={faGoogle} size="lg" className="me-2" />
+                        Google
+                      </button>
+                    </div>
+                    
                 </div>
 
                 <div>

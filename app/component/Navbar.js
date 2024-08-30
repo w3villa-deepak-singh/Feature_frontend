@@ -15,7 +15,7 @@ export default function Header() {
     const router = useRouter();
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
-
+   
 
     // Function to toggle the dropdown visibility
     const toggleDropdown = () => {
@@ -96,21 +96,45 @@ export default function Header() {
                                 Home
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item mx-4">
                             <Link href="/auth/plans" className="nav-link  text-white">
                                 Plans
                             </Link>
                         </li>
+                        <li className="nav-item mx-4">
+                            <Link href="/user" className="nav-link  text-white">
+                                Profile
+                            </Link>
+                        </li>
                     </ul>
                 </div>
-                
+                 
+
+                <div className=" justify-content-center d-flex">
+                    <ul className="navbar-nav d-flex flex-row">
+                  
+                        <li className="nav-item mx-4">
+                            <Link href="/auth/login" className="nav-link  text-white">
+                                Login
+                            </Link>
+                        </li>
+                   
+                        <li className="nav-item mx-4">
+                            <Link href="/auth/signup" className="nav-link  text-white">
+                                Signup
+                            </Link>
+                        </li>
+
+                      
+                    </ul>
+                </div>
 
                 {/* Right side: User Icon with Dropdown */}
-                <div className="d-flex align-items-center position-relative"
+                <div className="d-flex align-items-center position-relative border rounded bg-light user-container"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                    <div className="nav-link  text-white" onClick={toggleDropdown} style={{ cursor: 'pointer' }}>
+                    <div className="nav-link  text-black" onClick={toggleDropdown} style={{ cursor: 'pointer' }}>
                         User
                     </div>
 

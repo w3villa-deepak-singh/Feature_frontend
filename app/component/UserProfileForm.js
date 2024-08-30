@@ -39,6 +39,8 @@ export default function UserProfileForm() {
   const fetchUserData = async () => {
     if (!UID) return;
     try {
+
+      
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/get-profile/${UID}`);
       const result = await response.json();
 
@@ -258,17 +260,19 @@ export default function UserProfileForm() {
 
 
       {currentPath === '/user/update-profile' && (
-        <button type="submit" className="btn btn-primary">Submit</button>
+         <div className='d-flex justify-content-between mt-3'>
+         <button type="submit" className="btn btn-primary">Submit</button>
+        </div>
       )}
 
       {currentPath === '/user' && (
-          <>
+          <div className='d-flex justify-content-between mt-3'>
           <button
             type="button"
             className="btn btn-primary"
             onClick={() => router.push('/user/update-profile')}
           >
-            Update
+            Edit
           </button>
           <button
             type="button"
@@ -277,7 +281,7 @@ export default function UserProfileForm() {
           >
             Download PDF
           </button>
-        </>
+        </div>
         
       )}
 

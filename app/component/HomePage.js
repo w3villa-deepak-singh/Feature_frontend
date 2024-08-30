@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <section className='mainHomePage'>
     <h1>
-        deep
+      Hello welcome!
     </h1>
     <FontAwesomeIcon icon="fa-solid fa-user" />
     </section>

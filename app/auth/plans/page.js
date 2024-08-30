@@ -30,9 +30,11 @@ export default function Plans() {
   const handleBuy = async (title, price) => {
     console.log(`Bought ${title} plan for $${price}`);
     try {
-      const userData = JSON.parse(localStorage.getItem('user'));
-      const UID = userData ? userData.UID : null; // Extract UID from user data
-
+      // const userData = JSON.parse(localStorage.getItem('user'));
+      // const UID = userData ? userData.UID : null; // Extract UID from user data
+        // Retrieve token from localStorage
+        const token = localStorage.getItem('token');
+        
     const stripe = await stripePromise;
     if (!stripe) {
         console.error("Stripe has not been initialized");
@@ -40,16 +42,27 @@ export default function Plans() {
     }
 
 
+       
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+            },
+            body: JSON.stringify({ title, price }),
+          });
+    
+
+  //   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment`, {
       
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({title,price,UID}),
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({title,price,UID}),
   
-  });
+  // });
   const session = await response.json();
   if (session.error) {
       console.error("Error creating checkout session:", session.error);
