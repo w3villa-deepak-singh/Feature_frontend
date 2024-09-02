@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import styles from './Login.module.css';
+import Header from '@/app/component/Navbar';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -53,6 +54,10 @@ export default function Login() {
   };
 
   return (
+
+    <>
+     <Header/>
+   
     <section className={`${styles['vh-100']} ${styles['gradient-custom']}`}>
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
@@ -131,6 +136,8 @@ export default function Login() {
         </div>
       </div>
     </section>
+    
+    </>
   );
 }
 

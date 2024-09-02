@@ -12,7 +12,7 @@
 
     height: 100vh;
 
-    width: 100vw;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +20,17 @@
 
 .userForm{
     width: 80%;
-    height: 50%;
+    /* height: 50%; */
     padding: 30px;
+}
+.userImage {
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    height: 100%;       
+  }
+  
+.imgg{
+    border-radius: 50%; 
+    object-fit: cover;
 }

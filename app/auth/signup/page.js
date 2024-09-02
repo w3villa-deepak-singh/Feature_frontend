@@ -6,11 +6,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
 
+
 import styles from './Signup.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import Header from '@/app/component/Navbar';
 
 console.log("Backend URL:>>>>>>>>>>>>>", process.env.NEXT_PUBLIC_BACKEND_URL);
 
@@ -71,6 +73,8 @@ export default function Signup() {
 
   return (
     <>
+
+    <Header/>
 
       <section className={`${styles['vh-100']} ${styles['gradient-custom']}`}>
         <div className="container py-5 h-100">

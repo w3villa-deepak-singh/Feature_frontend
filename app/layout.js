@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import { ToastContainer, toast } from 'react-toastify';
-
+import Footer from "./component/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,10 +13,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Shiksha</title>
+        <link rel="icon" href="/favicon.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></link>
+      </head>
 
       <body className={inter.className}>
-
-      <ToastContainer 
+        <>
+        <ToastContainer 
         autoClose={3000}
         hideProgressBar
         newestOnTop
@@ -28,6 +33,10 @@ export default function RootLayout({ children }) {
         theme="light" 
         />
         {children}
+        <Footer />
+        </>
+
+     
 
         </body>
 

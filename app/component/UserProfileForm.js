@@ -4,8 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import jsPDF from 'jspdf'; 
-// import styles from '../styles/userForm.css';
 import { toast } from 'react-toastify';
+import Image from 'next/image';
+import Img from '../../public/user2.jpg'
 import '../styles/userForm.css'
 
 export default function UserProfileForm() {
@@ -14,9 +15,9 @@ export default function UserProfileForm() {
   const [currentPath, setCurrentPath] = useState(router.pathname);
   const [UID, setUID] = useState(null);
 
+
     // Determine if the fields should be read-only
     const isReadOnly = currentPath === '/user';
-
 
   // const localStorageuserData = JSON.parse(localStorage.getItem('user'));
   // const UID = localStorageuserData ? localStorageuserData.UID : null; 
@@ -59,6 +60,7 @@ export default function UserProfileForm() {
           city: result.data.city || '',
           country: result.data.country || ''
         });
+        // setAwsImageUrl(result.data.imgURL || null);
       }
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -154,9 +156,23 @@ export default function UserProfileForm() {
   return (
     <section className='userFormSection'>
     <form className="userForm card bg-dark text-white"  onSubmit={handleSubmit}>
-      <div className="row ">
+      <div className="row d-flex justify-content-center align-items-center ">
 
-        <div className="row">
+        <div className='row my-3'>
+             <div className='col'>
+             <div className= "userImage">
+                        <Image
+                            src={Img}
+                            alt="Profile Image"
+                            className="imgg"
+                            width={80}
+                            height={80}
+                        />
+                    </div>
+             </div>
+        </div>
+
+        <div className="row my-3">
           <div className="col">
             <label htmlFor="firstName">First Name</label>
             <input type="text" className="form-control" value={userData.firstName} id="firstName" placeholder="First name"
@@ -173,7 +189,7 @@ export default function UserProfileForm() {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row my-3">
           <div className="col">
             <label htmlFor="inputEmail4">Email</label>
             <input type="email" className="form-control" value={userData.email} id="inputEmail4" placeholder="Email" readOnly />
@@ -187,7 +203,7 @@ export default function UserProfileForm() {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row my-3">
           <div className="col">
             <label htmlFor="profession">Profession</label>
             <input type="text" className="form-control" value={userData.profession} id="profession" placeholder="Profession"
@@ -203,16 +219,18 @@ export default function UserProfileForm() {
 
 
 
-        <div className="row">
+        <div className="row my-3">
+        <div className="col">
           <label htmlFor="address">Address</label>
           <input type="text" className="form-control" value={userData.address} id="address" placeholder="1234 Main St" 
           onChange={handleInputChange}
           readOnly={isReadOnly}
            />
+           </div>
         </div>
 
 
-        <div className="row">
+        <div className="row my-3">
           <div className="col">
             <label htmlFor="city">City</label>
             <input type="text" className="form-control" value={userData.city} id="city" 
@@ -231,7 +249,7 @@ export default function UserProfileForm() {
         </div>
 
 
-        <div className="row">
+        <div className="row my-3">
           <div className="col">
             <label htmlFor="state">State</label>
             <input type="text" className="form-control" id="state" onChange={handleInputChange}  readOnly={isReadOnly}/>

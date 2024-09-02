@@ -1,7 +1,8 @@
+
 .user-container {
     background-color: #7c9dbe; 
     border: 1px solid #ced4da; 
-    padding: 8px; 
+    padding: 0px 8px; 
 
   }
 
@@ -12,6 +13,7 @@
 
 
 .user-dropdown{
+    margin-top: 6px;
     top: 100%;
     right: 0;
     z-index: 1000;

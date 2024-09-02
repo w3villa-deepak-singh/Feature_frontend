@@ -5,23 +5,27 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 // import styles from "./page.module.css";
 import { loadStripe } from '@stripe/stripe-js';
+import Header from '@/app/component/Navbar';
+import PricingSection from '@/app/component/PricingSection';
 
+
+import '../plans/plans.css'
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 // console.log("dfnfnf",NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 
-const PricingCard = ({ title, price, onBuy }) => (
-  <div className="card m-2" style={{width: '18rem'}}>
-    <div className="card-body">
-      <h5 className="card-title text-center">{title}</h5>
-      <p className="card-text text-center display-4">rupee{price}</p>
-      <button className="btn btn-primary w-100" onClick={() => onBuy(title, price)}>
-        Buy
-      </button>
-    </div>
-  </div>
-);
+// const PricingCard = ({ title, price, onBuy }) => (
+//   <div className="card m-0" style={{width: '18rem'}}>
+//     <div className="card-body">
+//       <h5 className="card-title text-center">{title}</h5>
+//       <p className="card-text text-center display-4">rupee{price}</p>
+//       <button className="btn btn-primary w-100" onClick={() => onBuy(title, price)}>
+//         Buy
+//       </button>
+//     </div>
+//   </div>
+// );
 
 
 export default function Plans() {
@@ -81,12 +85,66 @@ export default function Plans() {
 
 
   return (
-    <main >
-        
-        <div className="flex justify-center space-x-4">
+
+    <>
+    <Header/>
+    {/* <main >    
+        <div className="allPlansCard flex justify-center space-x-4">
           <PricingCard title="Silver" price={200} onBuy={handleBuy} />
           <PricingCard title="Gold" price={400} onBuy={handleBuy} />
        </div>
-    </main>
+    </main> */}
+
+
+
+<div className='main-container '>
+    <div className='mainheading text-white'>
+      <h1 className='subheading fw-bold text-center m-auto'>Level up your learning. Level up your career.</h1>
+    </div>
+    <div className='features m-auto '>
+      <span className='text-white col-md-4'><i className="fa-brands fa-readme"></i> 100+ Courses</span>
+      <span className='text-white col-md-4'><i className="fa-solid fa-users"></i> 100+ Learners</span>
+      <span className='text-white col-md-4'><i className="fa-solid fa-microchip"></i> AI-Powered Learning</span>
+    </div>
+    <PricingSection />
+    <section className="features-section text-white">
+      <h2 className="text-gray fw-bold text-center mt-3">Why Shiksha?</h2>
+      <hr />
+      <div className="features-grid">
+        <div className="feature-card">
+          <i className="fa-solid fa-chalkboard"></i>
+          <h3 className="feature-title">Learn Interactively</h3>
+          <p className="feature-description text-white">
+            Our courses include built-in coding playgrounds that let you learn new things without any setup.
+          </p>
+        </div>
+        <div className="feature-card">
+          <i className="fa-solid fa-book-atlas"></i>
+          <h3 className="feature-title">Learn Faster</h3>
+          <p className="feature-description text-white">
+            All of our learning products are text-based. You get to learn at your own pace. No pauses.
+          </p>
+        </div>
+        <div className="feature-card">
+          <i className="fa-solid fa-section"></i>
+          <h3 className="feature-title">Personalize Your Learning</h3>
+          <p className="feature-description text-white">
+            Achieve your goals faster with a path designed just for you. Personalized Paths are customized and focused on your individual learning needs and career goals. Unlock your potential with tailored guidance, ensuring every step you take is aligned with your success.
+          </p>
+          <span className="premium-badge">PREMIUM</span>
+        </div>
+        <div className="feature-card">
+          <i className="fa-solid fa-puzzle-piece"></i>
+          <h3 className="feature-title">Build Real-World Projects</h3>
+          <p className="feature-description text-white">
+            Complete a real-world programming project designed to exercise practical skills used in the workplace. Everything you learn from a Project will help you practice skills that are in-demand, useful, and highly relevant.
+          </p>
+          <span className="premium-badge">PREMIUM</span>
+        </div>
+      </div>
+
+    </section>
+  </div>
+    </>
   );
 }
