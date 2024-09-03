@@ -7,8 +7,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-sizing: border-box;
-    cursor:pointer
-
+    cursor:pointer;
 }
 
 .card-img {

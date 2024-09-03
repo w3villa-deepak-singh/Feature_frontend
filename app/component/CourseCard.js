@@ -7,21 +7,21 @@ function CourseCard({ course }) {
   const rating = course.rating ? parseFloat(course.rating).toFixed(1) : '0.0';
 
   return (
-    <div className="card">
-      <div className="card-img">
+    <div className="card bg-dark mt-0">
+      <div className="card-img ">
         <Image src={Img} alt={`${course.course_name} image`} />
       </div>
-      <div className="cardDetails">
-        <div className="Heading">
-          <h2>{course.course_name}</h2>
+      <div className="cardDetails ">
+        <div className="Heading ">
+          <h2 className="text-white">{course.course_name}</h2>
         </div>
         <div className="author">
-          <p>{course.trainer}</p>
+          <p className="text-white">{course.trainer}</p>
         </div>
         <div className="rating">
-          <span>{rating}</span>
+          <span className="text-white">{rating}</span>
           <span>⭐</span>
-          <span>({course.rating_count || 0})</span>
+          <span className="text-white">({course.rating_count || 0})</span>
         </div>
         <div className="price">
           <span className="current-price">₹{course.price}</span>

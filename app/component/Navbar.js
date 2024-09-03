@@ -105,7 +105,7 @@ export default function Header() {
                         <img src="/favicon.png" alt="favicon" width="25" height="25" className="mr-2 logo" />
                         <span className="ml-2">
                             <Link href="/" legacyBehavior>
-                                <a className="text-white Logoname" style={{ textDecoration: 'none', marginLeft: '10px' }}>Shiksha</a>
+                                <a className="text-white Logoname" style={{ textDecoration: 'none', marginLeft: '10px' }}>Shiksha Mitra</a>
                             </Link>
                         </span>
                     </div>
@@ -121,6 +121,11 @@ export default function Header() {
                             <li className="nav-item mx-4">
                                 <Link href="/auth/plans" className="nav-link  text-white">
                                     Plans
+                                </Link>
+                            </li>
+                            <li className="nav-item mx-4">
+                                <Link href="/courses" className="nav-link  text-white">
+                                    Courses
                                 </Link>
                             </li>
                             <li className="nav-item mx-4">

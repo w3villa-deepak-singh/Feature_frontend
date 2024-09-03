@@ -82,7 +82,7 @@ const PricingCard = ({ title, price, features, isBestForLearning, discount }) =>
                 <div className="text-center">
                     <button
                         type="button"
-                        className=" text-white btn btn-lg btn-block btn-outline-light"
+                        className=" text-white btn btn-lg btn-block btn-outline-light "
                         onClick={handleBuy}
                     >
                         Buy Now

@@ -42,6 +42,10 @@
     padding: 0.8rem 1.5rem;
 }
 
+.btn-outline-light:hover {
+    background-color: #343a40; 
+    color: white; 
+}
 
 @media (max-width: 768px) {
     .customcard3 .card-body .card-title {

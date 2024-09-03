@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
           <div className="col">
             <h5 className="text-uppercase mb-4">
-              Shiksha
+            Shiksha Mitra
             </h5>
             <p>Learn in-demand tech skills in half the time</p>
           </div>
