@@ -22,7 +22,7 @@ export default function HomePage() {
   return (
     <>
 
-      <section className="py-2 bg-light position-relative section-gradient">
+      <section className="py-4 bg-light position-relative section-gradient">
         <div
           className="bg-dark rounded-circle position-absolute"
           style={{ height: "16rem", width: "16rem", left: "-11rem", top: "0", zIndex: "10" }}

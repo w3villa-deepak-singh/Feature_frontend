@@ -173,14 +173,14 @@ export default function UserProfileForm() {
         </div>
 
         <div className="row my-3">
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="firstName">First Name</label>
             <input type="text" className="form-control" value={userData.firstName} id="firstName" placeholder="First name"
              onChange={handleInputChange}
              readOnly={isReadOnly}
              />
           </div>
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="lastName">LastName</label>
             <input type="text" className="form-control" id="lastName" value={userData.lastName} placeholder="Last name" 
             onChange={handleInputChange} 
@@ -190,11 +190,11 @@ export default function UserProfileForm() {
         </div>
 
         <div className="row my-3">
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="inputEmail4">Email</label>
             <input type="email" className="form-control" value={userData.email} id="inputEmail4" placeholder="Email" readOnly />
           </div>
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="mobileNumber">Mobile Number</label>
             <input type="number" className="form-control" value={userData.mobileNumber} id="mobileNumber" placeholder="Mobile number" 
             onChange={handleInputChange} 
@@ -204,14 +204,14 @@ export default function UserProfileForm() {
         </div>
 
         <div className="row my-3">
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="profession">Profession</label>
             <input type="text" className="form-control" value={userData.profession} id="profession" placeholder="Profession"
              onChange={handleInputChange} 
              readOnly={isReadOnly}
              />
           </div>
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="subscriptionType">Subscription Type</label>
             <input type="text" className="form-control" value={userData.subscription_type} id="subscriptionType" placeholder="subscription Type" readOnly />
           </div>
@@ -231,7 +231,7 @@ export default function UserProfileForm() {
 
 
         <div className="row my-3">
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="city">City</label>
             <input type="text" className="form-control" value={userData.city} id="city" 
             onChange={handleInputChange} 
@@ -239,7 +239,7 @@ export default function UserProfileForm() {
             />
           </div>
 
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="zip">Zip</label>
             <input type="number" className="form-control" id="zip" 
             onChange={handleInputChange} 
@@ -250,7 +250,7 @@ export default function UserProfileForm() {
 
 
         <div className="row my-3">
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="state">State</label>
             <input type="text" className="form-control" id="state" onChange={handleInputChange}  readOnly={isReadOnly}/>
             {/* <select id="inputState" className="form-control" onChange={handleInputChange}>
@@ -259,7 +259,7 @@ export default function UserProfileForm() {
             </select> */}
           </div>
 
-          <div className="col">
+          <div className="col-md-6 col-sm-12">
             <label htmlFor="country">Country</label>
             <input type="text" className="form-control" value={userData.country} id="country" 
             onChange={handleInputChange} 

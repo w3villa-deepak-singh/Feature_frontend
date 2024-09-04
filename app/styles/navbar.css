@@ -38,3 +38,25 @@
     background-color: #e2e6ea;
     color: rgb(138, 100, 100);
 }
+
+
+/* Hide dropdown items on screens wider than 768px */
+@media (min-width: 769px) {
+    .dropdown-item-responsive {
+        display: none;
+    }
+    .mobile-item-navbar1 {
+        display: flex !important; /* or block, depending on your layout needs */
+    }
+   
+}
+
+/* Show dropdown items on screens 768px wide and smaller */
+@media (max-width: 768px) {
+    .dropdown-item-responsive {
+        display: block;
+    }
+    .mobile-item-navbar1{
+        display: none !important;
+    }
+}

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
+
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -94,6 +95,7 @@ export default function Header() {
 
 
 
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -111,7 +113,7 @@ export default function Header() {
                     </div>
 
 
-                    <div className=" justify-content-center d-flex">
+                    <div className=" mobile-item-navbar1 justify-content-center d-flex">
                         <ul className="navbar-nav d-flex flex-row">
                             <li className="nav-item mx-4">
                                 <Link href="/" className="nav-link  text-white">
@@ -138,6 +140,7 @@ export default function Header() {
 
 
 
+
                     <div className="justify-content-center d-flex">
                         <ul className="navbar-nav d-flex flex-row">
                             {isAuthRoute ? (
@@ -158,7 +161,7 @@ export default function Header() {
                                             onClick={toggleDropdown}
                                             style={{ cursor: 'pointer' }}
                                         >
-                                            Deepak
+                                            User
                                         </div>
 
                                         {/* Dropdown menu */}
@@ -167,6 +170,17 @@ export default function Header() {
                                                 className="user-dropdown position-absolute bg-white border rounded p-2"
                                                 ref={dropdownRef}
                                             >
+                                                
+                                                    <Link href="/" className="dropdown-item dropdown-item-responsive">
+                                                        Home
+                                                    </Link>
+                                                    <Link href="/auth/plans" className="dropdown-item dropdown-item-responsive">
+                                                        Plans
+                                                    </Link>
+                                                    <Link href="/courses" className="dropdown-item dropdown-item-responsive">
+                                                        Courses
+                                                    </Link>
+                                               
                                                 <Link href="/user" className="dropdown-item">
                                                     My Profile
                                                 </Link>
@@ -185,50 +199,6 @@ export default function Header() {
                         </ul>
                     </div>
 
-                    {/* <div className=" justify-content-center d-flex">
-                    <ul className="navbar-nav d-flex flex-row">
-                  
-                        <li className="nav-item mx-4">
-                            <Link href="/auth/login" className="nav-link  text-white">
-                                Login
-                            </Link>
-                        </li>
-                   
-                        <li className="nav-item mx-4">
-                            <Link href="/auth/signup" className="nav-link  text-white">
-                                Signup
-                            </Link>
-                        </li>
-
-                      
-                    </ul>
-                </div> */}
-
-
-                    {/*               
-                <div className="d-flex align-items-center position-relative border rounded bg-light user-container"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                    <div className="nav-link  text-black" onClick={toggleDropdown} style={{ cursor: 'pointer' }}>
-                        User
-                    </div> */}
-
-                    {/* Dropdown menu */}
-                    {/* {dropdownVisible && (
-                        <div className="user-dropdown position-absolute bg-white border rounded p-2" 
-                        ref={dropdownRef}
-                        >
-                            <Link href="/user" className="dropdown-item ">
-                                My Profile
-                            </Link>
-                            <div className="dropdown-item" onClick={handleLogout} style={{ cursor: 'pointer' }}>
-                                Logout
-                            </div>
-                        </div>
-                    )}
-                </div>  */}
-
 
                 </div>
             </nav>
@@ -237,4 +207,3 @@ export default function Header() {
 }
 
 
-{/* <FontAwesomeIcon icon="fa-solid fa-user" /> */ }

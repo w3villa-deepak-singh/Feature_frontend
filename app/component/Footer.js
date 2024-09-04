@@ -5,17 +5,17 @@ const Footer = () => {
   return (
     <footer className=" bg-dark text-white mt-0 py-5">
       <div className="container">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
-          <div className="col">
-            <h5 className="text-uppercase mb-4">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5" style={{ width: '100%' }}>
+          <div className="col" style={{ display:'grid', justifyContent:'center',alignItems:'center'}}>
+            <h5 className="text-uppercase mb-4" style={{ textAlign:'center'}}>
             Shiksha Mitra
             </h5>
-            <p>Learn in-demand tech skills in half the time</p>
+            <p style={{ textAlign:'center'}}>Learn in-demand tech skills in half the time</p>
           </div>
 
-          <div className="col">
-            <h5 className="text-uppercase mb-4">Products</h5>
-            <ul className="list-unstyled">
+          <div className="col" style={{ display:'grid', justifyContent:'center',alignItems:'center'}}>
+            <h5 className="text-uppercase mb-4" style={{ textAlign:'center'}}>Products</h5>
+            <ul className="list-unstyled" style={{ textAlign:'center'}}>
               <li className="mb-2">
                 <Link href="/mock-interview" className="text-white text-decoration-none footer-link">
                   Mock Interview <span className="badge bg-primary">New</span>
@@ -29,9 +29,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col">
-            <h5 className="text-uppercase mb-4">Trending Topics</h5>
-            <ul className="list-unstyled">
+          <div className="col" style={{ display:'grid', justifyContent:'center',alignItems:'center'}}>
+            <h5 className="text-uppercase mb-4" style={{ textAlign:'center'}}>Trending Topics</h5>
+            <ul className="list-unstyled"style={{ textAlign:'center'}}>
               <li className="mb-2"><Link href="/learn-to-code" className="text-white text-decoration-none footer-link">Learn to Code</Link></li>
               <li className="mb-2"><Link href="/tech-interview-prep" className="text-white text-decoration-none footer-link">Tech Interview Prep</Link></li>
               <li className="mb-2"><Link href="/generative-ai" className="text-white text-decoration-none footer-link">Generative AI</Link></li>
@@ -42,9 +42,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col">
-            <h5 className="text-uppercase mb-4">Pricing</h5>
-            <ul className="list-unstyled">
+          <div className="col" style={{ display:'grid', justifyContent:'center',alignItems:'center'}}>
+            <h5 className="text-uppercase mb-4" style={{ textAlign:'center'}}>Pricing</h5>
+            <ul className="list-unstyled" style={{ textAlign:'center'}}>
               <li className="mb-2"><Link href="/pricing/individuals" className="text-white text-decoration-none footer-link">For Individuals</Link></li>
               <li className="mb-2"><Link href="/try-for-free" className="text-white text-decoration-none footer-link">Try for Free</Link></li>
               <li className="mb-2"><Link href="/gift-subscription" className="text-white text-decoration-none footer-link">Gift a Subscription</Link></li>
