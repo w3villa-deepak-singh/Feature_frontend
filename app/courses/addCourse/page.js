@@ -33,7 +33,7 @@ const AddCourseForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/addCourse`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/addCourse`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

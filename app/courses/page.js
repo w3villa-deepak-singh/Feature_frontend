@@ -14,7 +14,7 @@ export default function Courses() {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/showAllCourse`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/showAllCourse`);
       const result = await response.json();
 
 
@@ -60,11 +60,11 @@ export default function Courses() {
         </div>
         <div className="row justify-content-center g-3" >
           {details.map((course) => (
-            <div key={course.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center">
+            <div key={course.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center card-container">
               <Link href={`/courses/${course.id}`} passHref legacyBehavior>
                 <a className="text-decoration-none">
                   <CourseCard course={course} />
-                </a>
+              </a>
               </Link>
             </div>
           ))}
